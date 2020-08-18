@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<title>Simple Sign up from</title>
+<head>
+<style>
+
+button{
+  font-size: 20px;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+input {
+  display: inline-block;
+  float: left;
+}
+.center{
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+.hero {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero::before {   
+    content:""; 
+    background-image: url('http://localhost:8080/volleyball.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.3;
+}
+ h1 {
+  position: relative;
+  color: red;  
+  font-size: 44px;
+  line-height: 0.9;
+  text-align: center;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+</style>
+</head>
+<body>
+<div class = "hero">
+  <form action="http://localhost:8080/action_page.php" method="get">
+    <h1>SIGN UP</h1>
+    <label for="uname"><strong>First Name</strong></label>
+    <input type="text" id="FName" placeholder="Enter First Name" name="FName">
+    <br><br>
+    <label for="uname"><strong>Last Name</strong></label>
+    <input type="text" id="LName" placeholder="Enter Last Name" name="LName">
+    <br><br>
+    <label for="Gender"><strong>Gender</strong></label>
+    <select name="Gender" id="Gender">
+    <option value="M">M</option>
+    <option value="F">F</option>
+    </select>
+    <br><br>
+    <label for="SLevel"><strong>Skill Level:</strong></label>
+    <select name="SLevel" id="SLevel">
+    <option value="New">New</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+    </select>
+    <br><br>
+    <label for="uname"><strong>Date of Birth (YYYY-MM-DD)</strong></label>
+    <input type="text" id = "DOB" placeholder="Enter Date of Birth" name="DOB">
+    <br><br>
+    <label for="uname"><strong>Phone Number</strong></label>
+    <input type="text" id="PNumber" placeholder="Enter Phone Number" name="PNumber">
+    <br><br>
+    <label for="uname"><strong>WeChat ID</strong></label>
+    <input type="text" id="WeChat" placeholder="Enter WeChat ID" name="WeChat">
+    <br><br>
+    <label for="T-ShirtS"><strong>T-Shirt Size:</strong></label>
+    <label for="male">Small</label><br>
+    <input type="radio" id="Small" name="T-ShirtS" value="S">
+    <label for="female">Medium</label><br>
+    <input type="radio" id="Medium" name="T-ShirtS" value="M">
+    <label for="other">Large</label>
+    <input type="radio" id="Large" name="T-ShirtS" value="L">
+    <br><br><br>
+    <label for="mail"><strong>E-mail</strong></label>
+    <input type="text" id="E-mail" placeholder="Enter E-mail" name="E-mail">
+    <br><br><br>
+    <div class = "center">
+    <button type="submit"><strong>SIGN UP</strong></button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
