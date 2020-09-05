@@ -5,7 +5,7 @@
 $hash           = '$2y$12$bayVp/x9PTmOSPUlvDfqYOP8HK/.eOtYFtDEjLq2036Ck8fqTLjzu';
 $input_password = $_POST["psw"];
 
-// check if password and has are equal/the same
+// check if password and hash are equal/the same
 if (password_verify($input_password, $hash)) {
     echo "<iframe src='http://localhost:8080/display_info.php' width='100%' height='1000' name = 'Content'>
   </iframe>";
