@@ -50,7 +50,7 @@ $day = $dateExploded[2];
 $month = $dateExploded[1];
 $year = $dateExploded[0];
 
-if(!checkdate($month, $day, $year)){
+if (!checkdate($month, $day, $year)) {
     $error_message = 'Invalid Date Format. Please use this format: YYYY-MM-DD';
     myPrintLine($error_message);
     exit();
@@ -59,24 +59,24 @@ if(!checkdate($month, $day, $year)){
 $link = mysqli_connect("localhost", "root", "", "dsvclub");
  
 // Check connection
-if($link === false){
+if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+// Load table with information from user input
 $sql = "INSERT INTO players (firstname, lastname, gender, skilllevel, dob, email, phonenumber, tshirtsize, wechatid, RegistrationTimeStamp) VALUES ('$first_name', '$last_name', '$gender', '$skill_level', '$dob', '$email', '$phone_number', '$tshirt_size', '$wechat_id', CURRENT_TIMESTAMP)";
-if(mysqli_query($link, $sql)){
+if (mysqli_query($link, $sql)) {
     echo "Records inserted successfully.";
-} else{
+} else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 mysqli_close($link);
 
 ?>   
 
-
-
 <?php
-print "Current directory is: " .getcwd(). "<br>";
+    
+print "Current directory is: " . getcwd() . "<br>";
 echo "Hello <br>";
 echo "Thank you <br>";
 if ($handle = opendir('.')) {
