@@ -24,26 +24,18 @@ function MyPrintLine($String) {
   echo "$String <br>";
 }
 
-$FName = $_GET["FName"];
-$LName = $_GET["LName"];
-$Gender = $_GET["Gender"];
-$SLevel = $_GET["SLevel"];
-$DOB = $_GET["DOB"];
-$PNumber = $_GET["PNumber"];
-$WeChat = $_GET["WeChat"];
-$TShirtS = $_GET["T-ShirtS"];
-$Email = $_GET["E-mail"];
+$first_name = $_GET["FName"];
+$last_name = $_GET["LName"];
+$gender = $_GET["Gender"];
+$skill_level = $_GET["SLevel"];
+$dob = $_GET["DOB"];
+$phone_number = $_GET["PNumber"];
+$wechat_id = $_GET["WeChat"];
+$tshirt_size = $_GET["T-ShirtS"];
+$email = $_GET["E-mail"];
 
-echo "Welcome " .$_GET["FName"]. " " .$_GET["LName"]. "<br>";
-echo "Gender: " .$_GET["Gender"]. "<br>";
-echo "Skill Level: ".$_GET["SLevel"]. "<br>";
-echo "Date of Birth: " .$_GET["DOB"]. "<br>";
-echo "Phone Number: ".$_GET["PNumber"]. "<br>";
-echo "WeChat ID: ".$_GET["WeChat"]. "<br>";
-echo "T-Shirt Size: " .$_GET["T-ShirtS"]. "<br>";
-echo "Email: " .$_GET["E-mail"]. "<br>";
 
-$dateExploded = explode("-", $DOB);
+$dateExploded = explode("-", $dob);
  
 if(count($dateExploded) != 3){
     throw new Exception('Invalid Date Format. Please use this format: YYYY-MM-DD');
@@ -67,7 +59,7 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO players (firstname, lastname, gender, skilllevel, dob, email, phonenumber, tshirtsize, wechatid, RegistrationTimeStamp) VALUES ('$FName', '$LName', '$Gender', '$SLevel', '$DOB', '$Email', '$PNumber', '$TShirtS', '$WeChat', CURRENT_TIMESTAMP)";
+$sql = "INSERT INTO players (firstname, lastname, gender, skilllevel, dob, email, phonenumber, tshirtsize, wechatid, RegistrationTimeStamp) VALUES ('$first_name', '$last_name', '$gender', '$skill_level', '$dob', '$email', '$phone_number', '$tshirt_size', '$wechat_id', CURRENT_TIMESTAMP)";
 if(mysqli_query($link, $sql)){
     echo "Records inserted successfully.";
 } else{
