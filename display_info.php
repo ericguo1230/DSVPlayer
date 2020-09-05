@@ -22,9 +22,9 @@ tr:nth-child(even) {
 
 <?php
 $server_name = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dsvclub";
+$username    = "root";
+$password    = "";
+$dbname      = "dsvclub";
 
 // Create connection
 $conn = new mysqli($server_name, $username, $password, $dbname);
@@ -33,7 +33,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM players";
+$sql    = "SELECT * FROM players";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -49,18 +49,8 @@ if ($result->num_rows > 0) {
         <th>WeChat ID</th>
         <th>Registration Timestamp</th></tr>";
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" 
-        .$row["firstname"]. "</td><td>" 
-        .$row["lastname"]. "</td><td>" 
-        .$row["gender"]. "</td><td>" 
-        .$row["skilllevel"]. "</td><td>" 
-        .$row["dob"]. "</td><td>" 
-        .$row["email"]. "</td><td>" 
-        .$row["phonenumber"]. "</td><td>" 
-        .$row["tshirtsize"].  "</td><td>" 
-        .$row["wechatid"]. "</td><td>" 
-        .$row["RegistrationTimeStamp"]."</td></tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["firstname"] . "</td><td>" . $row["lastname"] . "</td><td>" . $row["gender"] . "</td><td>" . $row["skilllevel"] . "</td><td>" . $row["dob"] . "</td><td>" . $row["email"] . "</td><td>" . $row["phonenumber"] . "</td><td>" . $row["tshirtsize"] . "</td><td>" . $row["wechatid"] . "</td><td>" . $row["RegistrationTimeStamp"] . "</td></tr>";
     }
     echo "</table>";
 } else {
