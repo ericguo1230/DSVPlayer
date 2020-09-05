@@ -3,25 +3,30 @@
 
 <?php
 
-$conn = new mysqli("localhost", "root", "", "dsvclub");
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully <br>";
-
-
-$result = $conn->query("SELECT firstname,lastname FROM players");
-while ($row = $result->fetch_assoc()) {
-    echo $row['firstname']. " " . $row['lastname']."<br>";
+// function to output a line with the <br> added to the end
+function MyPrintLine($String) {
+    echo $String . '<br>';
 }
 
 ?>
 
 <?php
-function MyPrintLine($String) {
-  echo "$String <br>";
+
+// get the connection object
+$conn = new mysqli("localhost", "root", "", "dsvclub");
+
+// Check connection: exits if error
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully to the MySQL database<br>";
+
+// query the the first name and last name from table players
+$result = $conn->query("SELECT firstname,lastname FROM players");
+
+// loop through all records and display each row
+while ($row = $result->fetch_assoc()) {
+    echo $row['firstname']. ' ' . $row['lastname'] . '<br>';
 }
 
 $first_name = $_GET["FName"];
@@ -34,12 +39,11 @@ $wechat_id = $_GET["WeChat"];
 $tshirt_size = $_GET["T-ShirtS"];
 $email = $_GET["E-mail"];
 
-
+// validate the date of birth
 $dateExploded = explode("-", $dob);
- 
 if(count($dateExploded) != 3){
     throw new Exception('Invalid Date Format. Please use this format: YYYY-MM-DD');
-    exit();
+    exit(1);
 }
 
 $day = $dateExploded[2];
