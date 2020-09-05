@@ -33,9 +33,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// query all table information
 $sql    = "SELECT * FROM players";
 $result = $conn->query($sql);
 
+// loop through all the records and display information in an html table
 if ($result->num_rows > 0) {
     echo "<table style=\"border:1px solid black;margin-left:auto;margin-right:auto;\"><tr>
         <th>First Name</th>
@@ -48,6 +50,7 @@ if ($result->num_rows > 0) {
         <th>T-Shirt Size</th>
         <th>WeChat ID</th>
         <th>Registration Timestamp</th></tr>";
+    
     // output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "<tr><td>" . $row["firstname"] . "</td><td>" . $row["lastname"] . "</td><td>" . $row["gender"] . "</td><td>" . $row["skilllevel"] . "</td><td>" . $row["dob"] . "</td><td>" . $row["email"] . "</td><td>" . $row["phonenumber"] . "</td><td>" . $row["tshirtsize"] . "</td><td>" . $row["wechatid"] . "</td><td>" . $row["RegistrationTimeStamp"] . "</td></tr>";
