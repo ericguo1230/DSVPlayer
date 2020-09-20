@@ -26,6 +26,12 @@ input {
   -ms-transform: translate(-50%);
   transform: translate(-50%);
 }
+
+.textbox{
+  margin: 0;
+  position: absolute;
+}
+
 .hero {
     position: relative; 
     height: 100vh;
@@ -61,11 +67,12 @@ input[type=text]:focus, input[type=password]:focus {
 </style>
 </head>
 <body>
-<div class = "hero">
+  <div class = "hero">
+    <div class = "textbox">
   <form action="http://localhost:8080/action_page.php" method="get">
     <h1>SIGN UP</h1>
-    <label for="uname"><strong>First Name</strong></label>
-    <input type="text" id="FName" placeholder="Enter First Name" name="FName">
+    <label class = "labelstyle" for="uname"><strong>First Name</strong></label>
+    <input name="FName" type="text" class = "fieldstyle" id="FName" placeholder="Enter First Name">
     <br><br>
     <label for="uname"><strong>Last Name</strong></label>
     <input type="text" id="LName" placeholder="Enter Last Name" name="LName">
@@ -108,6 +115,7 @@ input[type=text]:focus, input[type=password]:focus {
     <br>
     </div>
   </form>
+  </div>
 </div>
 </body>
 </html>
